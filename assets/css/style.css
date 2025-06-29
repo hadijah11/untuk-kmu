@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+.pacifico {
+  font-family: 'Pacifico', cursive;
+}
+body {
+  background-color: #fff1f2;
+}
+.square-image {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 0.75rem;
+}
+.square-image:hover {
+  box-shadow: 0 8px 15px rgba(255, 105, 135, 0.2);
+  transform: scale(1.02);
+  transition: all 0.3s ease-in-out;
+}
+
