@@ -1,15 +1,223 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Ucapan Ulang Tahun</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Untuk Kamu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Handlee&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    .pacifico { font-family: 'Pacifico', cursive; }
+    .handlee { font-family: 'Handlee', cursive; }
+    .heartbeat {
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      25%, 75% { transform: scale(1.1); }
+    }
+    .photo-hover:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s;
+    }
+    .typewriter h2 {
+      overflow: hidden;
+      border-right: .15em solid pink;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: .1em;
+      animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: pink; }
+    }
+  </style>
 </head>
-<body>
-  <div class="box">
-    <h1>🎉 Selamat Ulang Tahun, Babee! 🎂</h1>
-    <p>Semoga panjang umur, sehat selalu, dan semua impianmu tercapai! 🥳</p>
-    <p class="footer">— Dari: Tuan Putri Jejee</p>
+<body class="bg-pink-50 text-gray-800" onload="launchConfetti()">
+
+<!-- Header -->
+<header class="bg-gradient-to-r from-pink-400 to-red-400 text-white py-6 text-center shadow">
+  <h1 class="text-4xl pacifico heartbeat">Untuk Kasihku <i class="fas fa-heart"></i></h1>
+  <p class="text-lg handlee">Yang Always loving Me <strong>You Complete Me</strong></p>
+</header>
+
+<!-- Navigasi -->
+<nav class="sticky top-0 z-10 bg-pink-200 shadow-md">
+  <div class="flex px-4 py-2 gap-4 overflow-x-auto">
+    <a href="#birthday" class="nav-btn px-3 py-1 rounded-full transition">Birthday</a>
+    <a href="#message" class="nav-btn px-3 py-1 rounded-full transition">Pesan Romantis</a>
+    <a href="#photos" class="nav-btn px-3 py-1 rounded-full transition">Memory</a>
+    <a href="#longtext" class="nav-btn px-3 py-1 rounded-full transition">Surat Cinta</a>
   </div>
+</nav>
+
+<main class="px-4 max-w-4xl mx-auto py-8 space-y-16">
+
+  <!-- Birthday -->
+  <section id="birthday" class="text-center" data-aos="fade-up">
+    <h2 class="text-3xl text-pink-600 pacifico mb-4">Birthday Special For Bram 🎂</h2>
+    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/765d48d6-0bc8-49b4-ba50-4daa0a1a71dd.png" class="rounded-xl shadow mx-auto max-w-md mb-6" alt="Birthday">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+      <div class="bg-pink-100 p-4 rounded-lg shadow" data-aos="zoom-in">
+        <h3 class="font-bold text-pink-700">Hallo babee!!</h3>
+        <p>Happy Birthday! Senantiasa diberikan hari hari yang penuh kebahagiaan yaa.. seperti kebahagiaan yang kau bawa dalam hidupku.</p>
+      </div>
+      <div class="bg-pink-100 p-4 rounded-lg shadow" data-aos="zoom-in">
+        <h3 class="font-bold text-pink-700">Lucky</h3>
+        <p>Thank you for loving me. For being my eyes when I couldn't see. For opening my mind when I couldn't think.</p> <p> You complete me.</p>
+      </div>
+      <div class="bg-pink-100 p-4 rounded-lg shadow" data-aos="zoom-in">
+        <h3 class="font-bold text-pink-700">Hope</h3>
+        <p>You still love me, always have, always will. Right?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pesan Romantis -->
+  <section id="message" class="text-center" data-aos="fade-up">
+    <h2 class="text-3xl text-pink-600 pacifico mb-4">Pesan dari Hatimu 💗</h2>
+    <textarea id="loveMessage" rows="4" placeholder="Tulis isi hatimu di sini..." class="w-full p-3 border border-pink-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+    <p class="mb-2 text-pink-700">Pilih emoji:</p>
+    <div class="flex justify-center gap-2 mb-4">
+      <button class="emoji px-2 text-xl">❤️</button>
+      <button class="emoji px-2 text-xl">😘</button>
+      <button class="emoji px-2 text-xl">💕</button>
+      <button class="emoji px-2 text-xl">🥰</button>
+      <button class="emoji px-2 text-xl">🌹</button>
+    </div>
+    <button id="sendToWhatsApp" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full">
+      Kirim ke WhatsApp <i class="fab fa-whatsapp"></i>
+    </button>
+  </section>
+
+  <!-- Memory -->
+  <section id="photos" data-aos="fade-up">
+    <h2 class="text-3xl text-center text-pink-600 pacifico mb-4">Kenangan Kita <i class="fas fa-images"></i></h2>
+    <div class="grid md:grid-cols-2 gap-4">
+
+      <!-- Memory 1 -->
+      <div class="bg-white rounded-lg shadow overflow-hidden">
+          <img src="assets/img/gathering.jpg" class="w-full h-48 object-cover">
+          <div class="p-3">
+            <h3 class="font-bold text-pink-700">Pertama Kali Gathering</h3>
+            <p class="text-sm">Hari itu pagi- pagi buta kamu datang jemput aku. Full selama acara kamu selalu ada disamping aku dan sampai acara selesai kamu lagi yang mengantarkan ku pulang kerumah dengan selamat dan tepat waktu.</p>
+          </div>
+        </div>
+
+      <!-- Memory 2 -->
+      <div class="bg-white rounded-lg shadow overflow-hidden">
+          <img src="assets/img/ultah.jpg" class="w-full h-48 object-cover">
+          <div class="p-3">
+            <h3 class="font-bold text-pink-700">Ultah Kamu</h3>
+            <p class="text-sm">Kado pertama aku di hari ultah mu. Dari isinya itu manifest kedepannya kamu yang provide aku yaa babee hehe.</p>
+          </div>
+        </div>
+
+       <!-- Memory 3 -->
+       <div class="bg-white rounded-lg shadow overflow-hidden">
+          <img src="assets/img/wicked.jpg" class="w-full h-48 object-cover">
+          <div class="p-3">
+            <h3 class="font-bold text-pink-700">Wicked Installation di Senayan</h3>
+            <p class="text-sm">First date. Jauh- jauh back to tempat pertama saat kita pertama dulu kenal. Finally kita bisa kejar show wicked walaupun akhirnya pulang larut malam.</p>
+          </div>
+        </div>
+
+      <!-- Memory 4 -->
+      <div class="bg-white rounded-lg shadow overflow-hidden">
+         <img src="assets/img/malam-minggu.jpg" class="w-full h-48 object-cover">
+          <div class="p-3">
+            <h3 class="font-bold text-pink-700">Malam Minggu Kita</h3>
+            <p class="text-sm">Kata kamu weekend adalah hari yang paling kamu tunggu. Karena ada aku untuk menjadi tempat untukmu pulang.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    </div>
+  </section>
+
+  <!-- Surat Cinta -->
+  <section id="longtext" class="text-center" data-aos="fade-up">
+    <div class="typewriter mb-4"><h2 class="text-3xl text-pink-600 pacifico">Surat Cinta Untuk Kamu 💌</h2></div>
+    <div class="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto text-left text-base leading-relaxed text-gray-700">
+      <p class="mb-4">Babee, dari hari pertama kamu hadir dalam hidupku, semuanya berubah jadi lebih rumit. Setiap momen bersamamu seperti potongan kisah yang ada di dongeng. Begitu banyak kasih kebahagiaan dan cinta dalam hidupku, kamu adalah sumber tawa dan senyum ku yang ngga pernah habis.
+        </p>
+      <p class="mb-4">Aku mau kamu tau kalau aku sangat menghargai setiap hal kecil yang kamu lakuin. Dari perhatian kecil yang kamu kasih, sampai dukungan yang selalu ada buat aku, semuanya sangat berarti. Kamu adalah partner terbaik yang bisa aku harapkan. Aku bangga punya kamu, grateful to have you, i'm promise always loving you dengan cara terbaik yang aku bisa.
+        </p>
+      <p class="mb-4">Di hari spesialmu ini, aku harap semua goalsmu segera terwujud dan kesuksesan dalam segala hal setiap langkahmu. Aku juga berdoa agar hubungan kita selalu tentram dan langgeng terus ya beb.
+        </p>
+      <p class="mb-4"> Ayoo kita buat lebih banyak kenangan indah, saling mendukung dan mencintai dalam setiap langkah yang kita ambil. Kamu segalanya buat aku, aku ngga sabar lihat apa yang masa depan bawa untuk kita berdua.
+        </p>
+      <p class="mb-4"> Selamat ulang tahun sekali lagi, luv! Terima kasih sudah menjadi dirimu yang strong dan luar biasa. Aku akan terus ada, mendampingi, mencintai, dan mendo'a kan mu from behind. I love you to the moon and never back 🌙💕. <P>Have an amazing day, babee! SORRY FOR THIS YEARS, KADONYA BELI SENDIRI YAA
+        </P>
+    </div>
+  </section>
+
+  <!-- Musik -->
+  <section id="music" data-aos="fade-up">
+    <h2 class="text-3xl text-center text-pink-600 pacifico mb-4">Lagu Kamu <i class="fas fa-music"></i></h2>
+    <div class="bg-pink-100 rounded-lg p-4 text-center">
+      <h4 class="font-bold">Sempurna - Andra and The BackBone</h4>
+      <p class="text-sm text-pink-700">Karena bagiku kamu adalah sempurna.</p>
+    </div>
+    <audio id="romanticSong" autoplay loop>
+      <source src="assets/audio/sempurna.mp3" type="audio/mpeg">
+      Browser kamu tidak mendukung audio.
+    </audio>
+  </section>
+</main>
+
+<footer class="bg-pink-200 text-center py-4 mt-12">
+  <p class="handlee text-pink-700">By Tuan Putri Jejee <i class="fas fa-heart text-pink-600"></i> Untuk Bram</p>
+  <p class="text-xs text-pink-600">Spend your life loving me.</p>
+</footer>
+
+<script>
+  AOS.init();
+
+  document.querySelectorAll('.emoji').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const emoji = btn.textContent;
+      const textarea = document.getElementById('loveMessage');
+      textarea.value += emoji;
+    });
+  });
+
+  document.getElementById('sendToWhatsApp').addEventListener('click', () => {
+    const msg = document.getElementById('loveMessage').value.trim();
+    if (!msg) return alert('Tulis pesan dulu ya!');
+    const encoded = encodeURIComponent(msg);
+    const number = '6285717188404';
+    window.open(`https://wa.me/${number}?text=${encoded}`, '_blank');
+  });
+
+  document.querySelectorAll('.nav-btn').forEach(link => {
+    link.addEventListener('click', function () {
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('bg-pink-500', 'text-white'));
+      this.classList.add('bg-pink-500', 'text-white');
+    });
+  });
+
+  function launchConfetti() {
+    confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
+  }
+
+  const audio = document.getElementById("romanticSong");
+  audio.volume = 0;
+  audio.play().catch(() => {});
+  document.addEventListener('click', () => {
+    audio.volume = 1;
+    audio.play();
+  }, { once: true });
+</script>
 </body>
 </html>
